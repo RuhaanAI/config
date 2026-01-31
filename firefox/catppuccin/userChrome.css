@@ -1,0 +1,152 @@
+/* ======================
+   Catppuccin Macchiato
+   ====================== */
+:root {
+  --ctp-rosewater: #F4DBD6;
+  --ctp-flamingo:  #F0C6C6;
+  --ctp-pink:      #F5BDE6;
+  --ctp-mauve:     #C6A0F6;
+  --ctp-red:       #ED8796;
+  --ctp-maroon:    #EE99A0;
+  --ctp-peach:     #F5A97F;
+  --ctp-yellow:    #EED49F;
+  --ctp-green:     #A6DA95;
+  --ctp-teal:      #8BD5CA;
+  --ctp-sky:       #91D7E3;
+  --ctp-sapphire:  #7DC4E4;
+  --ctp-blue:      #8AADF4;
+  --ctp-lavender:  #B7BDF8;
+
+  --ctp-text:      #CAD3F5;
+  --ctp-subtext1:  #B8C0E0;
+  --ctp-subtext0:  #A5ADCB;
+  --ctp-overlay2:  #939AB7;
+  --ctp-overlay1:  #8087A2;
+  --ctp-overlay0:  #6E738D;
+
+  --ctp-surface2:  #5B6078;
+  --ctp-surface1:  #494D64;
+  --ctp-surface0:  #363A4F;
+  --ctp-base:      #24273A; /* main background */
+  --ctp-mantle:    #1E2030; /* sidebar */
+  --ctp-crust:     #181926;
+
+  /* Override your custom vars */
+  --custom-bg: var(--ctp-base);
+  --sidebar-bg: var(--ctp-mantle);
+}
+
+/* ====== Main background ====== */
+body {
+  background: var(--custom-bg) !important;
+}
+
+html:not([privatebrowsingmode="temporary"]) #navigator-toolbox {
+  padding-top: 3px;
+  padding-bottom: 4px;
+  background: var(--custom-bg) !important;
+  border-bottom: 0 !important;
+}
+
+#nav-bar {
+  background: var(--custom-bg) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 20px);
+}
+
+/* Ensure icons are centered */
+#nav-bar > .nav-bar-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ====== Sidebar with contrast ====== */
+html:not([privatebrowsingmode="temporary"]) #sidebar-box {
+  background: var(--sidebar-bg) !important;
+}
+html:not([privatebrowsingmode="temporary"]) #sidebar-splitter {
+  border: none !important;
+  background: transparent !important;
+  width: 1px !important;
+}
+html:not([privatebrowsingmode="temporary"]) #sidebar-header {
+  display: none;
+}
+html:not([privatebrowsingmode="temporary"]) .sidebar-panel {
+  background-color: var(--sidebar-bg) !important;
+  color: var(--ctp-text) !important;
+}
+
+/* ====== Tabs / toolbar ====== */
+html:not([privatebrowsingmode="temporary"]) #TabsToolbar {
+  visibility: collapse !important;
+}
+#TabsToolbar {
+  background: var(--custom-bg) !important;
+}
+
+/* ====== Titlebar buttons ====== */
+html:not([privatebrowsingmode="temporary"]) .titlebar-buttonbox-container {
+  position: absolute;
+  right: 0;
+  top: 9px;
+  display: flex;
+  justify-content: center;
+  width: 110px !important;
+}
+.titlebar-button {
+  width: 36px !important;
+}
+
+/* ====== URL Bar ====== */
+#identity-icon-label {
+  display: none;
+}
+#urlbar {
+  left: 50% !important;
+  transform: translateX(-50%);
+  max-width: 960px !important;
+}
+#urlbar:not([breakout-extend]) #urlbar-background {
+  background: var(--ctp-surface0) !important;
+  border: 1px solid var(--ctp-surface1);
+  border-radius: 6px;
+  color: var(--ctp-text) !important;
+}
+
+/* ====== Sidebar sizing (hover expand) ====== */
+html:not([privatebrowsingmode="temporary"]) #sidebar-box {
+  --uc-sidebar-width: 60px;
+  --uc-sidebar-hover-width: 360px;
+  position: relative;
+  min-width: var(--uc-sidebar-width) !important;
+  width: var(--uc-sidebar-width) !important;
+  max-width: var(--uc-sidebar-width) !important;
+  z-index: 4 !important;
+}
+html:not([privatebrowsingmode="temporary"]) #main-window[sizemode="fullscreen"] #sidebar-box {
+  --uc-sidebar-width: 1px;
+}
+html:not([privatebrowsingmode="temporary"]) #sidebar-splitter {
+  display: none;
+}
+html:not([privatebrowsingmode="temporary"]) #sidebar {
+  min-width: var(--uc-sidebar-width) !important;
+}
+html:not([privatebrowsingmode="temporary"]) #sidebar-box:hover > .sidebar-browser-stack > #sidebar {
+  min-width: var(--uc-sidebar-hover-width) !important;
+}
+
+/* Remove white glow highlight from focused inputs (sidebar search bar etc.) */
+#sidebar-box input:focus,
+#sidebar-box textbox:focus,
+#sidebar-box .search-box:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--ctp-surface0) !important; /* or your preferred bg */
+  color: var(--ctp-text) !important;
+}
