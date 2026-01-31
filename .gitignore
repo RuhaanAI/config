@@ -1,0 +1,12 @@
+# Secrets
+*token*
+*secret*
+*.key
+*.pem
+
+# Raycast
+raycast/config.json
+raycast/extensions/node_modules/
+
+# OS junk
+.DS_Store
